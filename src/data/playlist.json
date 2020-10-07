@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "url": "https://designband.com/wp-content/uploads/2012/10/All-About-That-Bass-D.mp3",
+    "title": "All About That Bass",
+    "artist": "Meghan Traynor",
+    "album": "while(1<2)",
+    "genre": "Progressive House, Electro House",
+    "date": "2014-05-20T07:00:00+00:00",
+    "artwork": "https://is3-ssl.mzstatic.com/image/thumb/Features124/v4/84/cc/c4/84ccc473-77cd-e056-a73b-7b5b1db4c473/pr_source.png/190x190cc-60.jpg"
+  },
+  {
+    "id": "2",
+    "url": "https://designband.com/wp-content/uploads/2012/10/Uptown-Funk-D.mp3",
+    "title": "Uptown Funk",
+    "artist": "Bruno Mars",
+    "album": "while(1<2)",
+    "genre": "Progressive House, Electro House",
+    "date": "2014-05-20T07:00:00+00:00",
+    "artwork": "https://is5-ssl.mzstatic.com/image/thumb/Music/v4/89/88/62/898862e2-3dda-efb4-dc3e-00a06d8b4dd7/075679956491.jpg/300x300bb-60.jpg"
+  },
+  {
+    "id": "sample-1",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    "title": "Avaritia",
+    "artist": "T. Schürger",
+    "album": "while(1<2)",
+    "genre": "Progressive House, Electro House",
+    "date": "2009-07-06T07:00:00+00:00",
+    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/cc/7f/78/cc7f784c-5f6d-7aae-013d-350ab7999c84/075679871503.jpg/300x300bb-60.jpg"
+  },
+  {
+    "id": "sample-2",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    "title": "Avaritia II",
+    "artist": "deadmau5",
+    "album": "while(1<2)",
+    "genre": "Progressive House, Electro House",
+    "date": "2014-05-20T07:00:00+00:00",
+    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/cc/7f/78/cc7f784c-5f6d-7aae-013d-350ab7999c84/075679871503.jpg/300x300bb-60.jpg"
+  },
+  {
+    "id": "sample-3",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+    "title": "Avaritia III",
+    "artist": "deadmau5",
+    "album": "while(1<2)",
+    "genre": "Progressive House, Electro House",
+    "date": "2014-05-20T07:00:00+00:00",
+    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/cc/7f/78/cc7f784c-5f6d-7aae-013d-350ab7999c84/075679871503.jpg/300x300bb-60.jpg"
+  },
+  {
+    "id": "sample-8",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
+    "title": "Sound Helix Sample 8",
+    "artist": "T. Schürger",
+    "album": "while(1<2)",
+    "genre": "Progressive House, Electro House",
+    "date": "2014-05-20T07:00:00+00:00",
+    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/cc/7f/78/cc7f784c-5f6d-7aae-013d-350ab7999c84/075679871503.jpg/300x300bb-60.jpg"
+  }
+]
