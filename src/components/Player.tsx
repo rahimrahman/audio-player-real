@@ -36,13 +36,13 @@ const Player = (props: IPlayerProps) => {
       setTrackTitle(track.title);
       setTrackArtist(track.artist);
     };
-    fetchTheTrack();
+    fetchTheTrack().then((_) => {});
   }, []);
 
   const playbackState = usePlaybackState();
-  let playPauseButton = 'Play';
+  let playPauseButton = require('../images/controls/play.png');
   if (playbackState === TrackPlayer.STATE_PLAYING) {
-    playPauseButton = 'Pause';
+    playPauseButton = require('../images/controls/pause.png');
   }
   useTrackPlayerEvents(
     ['playback-track-changed'],
@@ -74,14 +74,37 @@ const Player = (props: IPlayerProps) => {
         <Text style={styles.artistText}> {trackArtist}</Text>
         <PlayerProgressBar />
         <View style={styles.playerControlContainer}>
-          <PlayerButton title={'<<'} onPress={props.skipPrevious} />
-          <PlayerButton title={'<'} onPress={seekPrevious} />
           <PlayerButton
-            title={playPauseButton}
-            onPress={props.togglePlayback}
+            title={'<<'}
+            onPress={props.skipPrevious}
+            imagePath={require('../images/controls/previous.png')}
           />
-          <PlayerButton title={'>'} onPress={seekNext} />
-          <PlayerButton title={'>>'} onPress={props.skipNext} />
+          <PlayerButton
+            title={'<'}
+            onPress={seekPrevious}
+            imagePath={require('../images/controls/rewind.png')}
+            imageStyle={styles.playerImageButton}
+            buttonStyle={styles.playerButton}
+          />
+          <PlayerButton
+            title={'play'}
+            onPress={props.togglePlayback}
+            imagePath={playPauseButton}
+            imageStyle={styles.playPauseImage}
+            buttonStyle={playPauseButton}
+          />
+          <PlayerButton
+            title={'>'}
+            onPress={seekNext}
+            imagePath={require('../images/controls/forward.png')}
+            imageStyle={styles.playerImageButton}
+            buttonStyle={styles.playerButton}
+          />
+          <PlayerButton
+            title={'>>'}
+            onPress={props.skipNext}
+            imagePath={require('../images/controls/next.png')}
+          />
         </View>
       </View>
     </SafeAreaView>
@@ -105,11 +128,18 @@ const styles = StyleSheet.create({
   playerControlContainer: {
     flex: 1,
     flexDirection: 'row',
+    alignItems: 'center',
+    paddingBottom: 100,
   },
   trackControlContainer: {
     flex: 1,
     height: '100%',
   },
+
+  playPauseButton: { borderRadius: 47 },
+  playPauseImage: { width: 94, height: 94 },
+  playerButton: { width: 50, height: 50 },
+  playerImageButton: { width: 40, height: 40 },
 
   /* text */
   artistText: {

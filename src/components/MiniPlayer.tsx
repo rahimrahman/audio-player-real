@@ -33,9 +33,9 @@ const MiniPlayer = ({
   const [trackArtwork, setTrackArtwork] = useState();
   const [trackTitle, setTrackTitle] = useState('');
   const playbackState = usePlaybackState();
-  let playPauseButton = 'Play';
+  let playPauseButton = require('../images/controls/play.png');
   if (playbackState === TrackPlayer.STATE_PLAYING) {
-    playPauseButton = 'Pause';
+    playPauseButton = require('../images/controls/pause.png');
   }
   useTrackPlayerEvents(
     ['playback-track-changed'],
@@ -52,10 +52,10 @@ const MiniPlayer = ({
   return (
     <View style={styles.miniPlayerContainer}>
       <TouchableWithoutFeedback onPress={togglePlayer}>
-        <View style={{ flex: 5, flexDirection: 'row' }}>
+        <View style={styles.artistArtworkContainer}>
           <View style={styles.commonStyleContainer}>
             <Image
-              style={styles.tinyLogo}
+              style={styles.tinyArtworkImage}
               source={{
                 uri: trackArtwork,
               }}
@@ -68,8 +68,19 @@ const MiniPlayer = ({
       </TouchableWithoutFeedback>
 
       <View style={[styles.commonStyleContainer, styles.controlContainer]}>
-        <PlayerButton title={playPauseButton} onPress={togglePlayback} />
-        <PlayerButton title={'>>'} onPress={skipNext} />
+        <PlayerButton
+          title={'play'}
+          onPress={togglePlayback}
+          imagePath={playPauseButton}
+          imageStyle={styles.playPauseImage}
+          buttonStyle={styles.playPauseButton}
+        />
+        <PlayerButton
+          title={'>>'}
+          onPress={skipNext}
+          imagePath={require('../images/controls/next.png')}
+          imageStyle={styles.nextImage}
+        />
       </View>
     </View>
   );
@@ -85,12 +96,18 @@ const styles = StyleSheet.create({
   trackContainer: { flex: 4 },
   commonStyleContainer: { flex: 1, justifyContent: 'center' },
   controlContainer: {
+    flex: 1.2,
     flexDirection: 'row',
-    flexWrap: 'nowrap',
     height: '100%',
     alignItems: 'center',
   },
-  tinyLogo: {
+  artistArtworkContainer: { flex: 5, flexDirection: 'row' },
+
+  playPauseButton: { width: 50, height: 50 },
+
+  nextImage: { width: 50, height: 50 },
+  playPauseImage: { width: 45, height: 45 },
+  tinyArtworkImage: {
     width: 40,
     height: 40,
   },
