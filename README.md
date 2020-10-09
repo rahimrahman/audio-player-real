@@ -1,6 +1,8 @@
 # Audio Player
 
-Using react-native-track-player, and inspired by Apple Music app, Audio Player app has the ability to play music (also on the background).
+Inspired by Apple Music app, Audio Player app has the ability to play music (as well in the background) from a defined playlist json file.  Mini Player at the bottom of the track list can be tapped to get a Full Player.
+
+The package react-native-track-player came with all the nice features to make this app possible without having to add anymore additional packages.  Having the ability to monitor events when changes to the playback allows creation of components without having to use state management package like redux.
 
 iOS           |  Android
 :-------------------------:|:-------------------------:
@@ -18,11 +20,13 @@ yarn ios
 yarn android
 ```
 
-### Playlist
+### Playing Your Own Playlist
 
-Modify ./src/data/playlist.json and modify the tracks with your own .mp3 songs.
+Modify ./src/data/playlist.json and add the tracks with your own .mp3 songs.
 
 ### Testing the App
+
+Currently, only doing shallow render on PlayerArtwork component.
 ```
 yarn test
 ```
