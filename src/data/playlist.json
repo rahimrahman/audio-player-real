@@ -5,7 +5,7 @@
     "title": "All About That Bass",
     "artist": "Meghan Traynor",
     "album": "while(1<2)",
-    "genre": "Progressive House, Electro House",
+    "genre": "Modern Rock",
     "date": "2014-05-20T07:00:00+00:00",
     "artwork": "https://is3-ssl.mzstatic.com/image/thumb/Features124/v4/84/cc/c4/84ccc473-77cd-e056-a73b-7b5b1db4c473/pr_source.png/190x190cc-60.jpg"
   },
@@ -22,41 +22,161 @@
   {
     "id": "sample-1",
     "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-    "title": "Avaritia",
+    "title": "Sound Helix Sample 1",
     "artist": "T. Schürger",
-    "album": "while(1<2)",
+    "album": "SoundHelix Samples",
     "genre": "Progressive House, Electro House",
     "date": "2009-07-06T07:00:00+00:00",
-    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/cc/7f/78/cc7f784c-5f6d-7aae-013d-350ab7999c84/075679871503.jpg/300x300bb-60.jpg"
+    "artwork": "https://is5-ssl.mzstatic.com/image/thumb/Music114/v4/3a/c5/75/3ac57522-b382-e54f-6237-2469dd8f7494/source/432x432sr-60.jpg"
   },
   {
     "id": "sample-2",
     "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-    "title": "Avaritia II",
-    "artist": "deadmau5",
+    "title": "Sound Helix Sample 2",
+    "artist": "T. Schürger",
     "album": "while(1<2)",
     "genre": "Progressive House, Electro House",
     "date": "2014-05-20T07:00:00+00:00",
-    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/cc/7f/78/cc7f784c-5f6d-7aae-013d-350ab7999c84/075679871503.jpg/300x300bb-60.jpg"
+    "artwork": "https://is4-ssl.mzstatic.com/image/thumb/Music124/v4/46/9c/ff/469cff24-7bd9-a7ee-37aa-bf86628230da/source/432x432sr-60.jpg"
   },
   {
     "id": "sample-3",
     "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-    "title": "Avaritia III",
-    "artist": "deadmau5",
+    "title": "Sound Helix Sample 3",
+    "artist": "T. Schürger",
+    "album": "SoundHelix Samples",
+    "genre": "Progressive House, Electro House",
+    "date": "2014-05-20T07:00:00+00:00",
+    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Features6/v4/fb/ae/0f/fbae0fe0-34b9-8094-7f1a-aff3814761fa/dj.gsbpsiuk.jpg/600x600bb-60.jpg"
+  },
+  {
+    "id": "sample-4",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+    "title": "Sound Helix Sample 4",
+    "artist": "T. Schürger",
+    "album": "SoundHelix Samples",
+    "genre": "Progressive House, Electro House",
+    "date": "2009-07-06T07:00:00+00:00",
+    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music124/v4/c9/fb/67/c9fb673a-376f-8473-f225-0c99a450cd25/dj.vaqvhtxw.jpg/600x600bb-60.jpg"
+  },
+  {
+    "id": "sample-5",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+    "title": "Sound Helix Sample 5",
+    "artist": "T. Schürger",
     "album": "while(1<2)",
     "genre": "Progressive House, Electro House",
     "date": "2014-05-20T07:00:00+00:00",
-    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/cc/7f/78/cc7f784c-5f6d-7aae-013d-350ab7999c84/075679871503.jpg/300x300bb-60.jpg"
+    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music4/v4/b4/58/c4/b458c4d6-87eb-12ad-26df-f29f00fd14c7/888174849096.jpg/380x380cc-60.jpg"
+  },
+  {
+    "id": "sample-6",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
+    "title": "Sound Helix Sample 6",
+    "artist": "T. Schürger",
+    "album": "SoundHelix Samples",
+    "genre": "Progressive House, Electro House",
+    "date": "2014-05-20T07:00:00+00:00",
+    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/68/5f/31/685f3180-55b3-0687-c0be-d75b1c0ace1b/859729424327_cover.jpg/600x600bb-60.jpg"
+  },
+  {
+    "id": "sample-7",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
+    "title": "Sound Helix Sample 7",
+    "artist": "T. Schürger",
+    "album": "SoundHelix Samples",
+    "genre": "Progressive House, Electro House",
+    "date": "2014-05-20T07:00:00+00:00",
+    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music7/v4/28/61/8a/28618ab8-4bb8-fa94-4329-866820789c89/0028672281428.png/600x600bb-60.jpg"
   },
   {
     "id": "sample-8",
     "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
     "title": "Sound Helix Sample 8",
     "artist": "T. Schürger",
-    "album": "while(1<2)",
+    "album": "SoundHelix Samples",
     "genre": "Progressive House, Electro House",
     "date": "2014-05-20T07:00:00+00:00",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/20/b5/f8/20b5f89c-4085-16f1-c1e0-33d7598547e1/0.jpg/600x600bb-60.jpg"
+  },
+  {
+    "id": "sample-9",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
+    "title": "Sound Helix Sample 9",
+    "artist": "T. Schürger",
+    "album": "SoundHelix Samples",
+    "genre": "Progressive House, Electro House",
+    "date": "2013-04-20T07:00:00+00:00",
+    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music/y2004/m10/d14/h04/s05.wjvqnugb.jpg/600x600bb-60.jpg"
+  },
+  {
+    "id": "sample-10",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
+    "title": "Sound Helix Sample 10",
+    "artist": "T. Schürger",
+    "album": "SoundHelix Samples",
+    "genre": "Progressive House, Electro House",
+    "date": "2013-04-20T07:00:00+00:00",
+    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Features/dc/65/5a/dj.heacrjed.jpg/600x600bb-60.jpg"
+  },
+  {
+    "id": "sample-11",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
+    "title": "Sound Helix Sample 11",
+    "artist": "T. Schürger",
+    "album": "SoundHelix Samples",
+    "genre": "Progressive House, Electro House",
+    "date": "2013-04-20T07:00:00+00:00",
+    "artwork": "https://is3-ssl.mzstatic.com/image/thumb/Features/ac/cf/cb/dj.ejduzqub.jpg/600x600bb-60.jpg"
+  },
+  {
+    "id": "sample-12",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
+    "title": "Sound Helix Sample 12",
+    "artist": "T. Schürger",
+    "album": "SoundHelix Samples",
+    "genre": "Progressive House, Electro House",
+    "date": "2013-04-20T07:00:00+00:00",
+    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music117/v4/00/48/34/0048349d-f2f9-24eb-e5e2-fa15c4aab7a8/cover.jpg/600x600bb-60.jpg"
+  },
+  {
+    "id": "sample-13",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
+    "title": "Sound Helix Sample 13",
+    "artist": "T. Schürger",
+    "album": "SoundHelix Samples",
+    "genre": "Progressive House, Electro House",
+    "date": "2013-04-20T07:00:00+00:00",
     "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/cc/7f/78/cc7f784c-5f6d-7aae-013d-350ab7999c84/075679871503.jpg/300x300bb-60.jpg"
+  },
+  {
+    "id": "sample-14",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
+    "title": "Sound Helix Sample 14",
+    "artist": "T. Schürger",
+    "album": "SoundHelix Samples",
+    "genre": "Progressive House, Electro House",
+    "date": "2013-04-20T07:00:00+00:00",
+    "artwork": "https://is4-ssl.mzstatic.com/image/thumb/Music6/v4/0c/70/ce/0c70ced8-bde3-b833-ec3b-2147033f4fc0/9008798152810_cover.jpg/600x600bb-60.jpg"
+  },
+  {
+    "id": "sample-15",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
+    "title": "Sound Helix Sample 15",
+    "artist": "T. Schürger",
+    "album": "SoundHelix Samples",
+    "genre": "Progressive House, Electro House",
+    "date": "2013-04-20T07:00:00+00:00",
+    "artwork": "https://is2-ssl.mzstatic.com/image/thumb/Music3/v4/52/2e/2f/522e2f01-19b4-0517-4328-05e5f5f206c1/cover.jpg/600x600bb-60.jpg"
+  },
+  {
+    "id": "sample-16",
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3",
+    "title": "Sound Helix Sample 16",
+    "artist": "T. Schürger",
+    "album": "SoundHelix Samples",
+    "genre": "Progressive House, Electro House",
+    "date": "2013-04-20T07:00:00+00:00",
+    "artwork": "https://is4-ssl.mzstatic.com/image/thumb/Music20/v4/04/fe/67/04fe67b7-edfc-95b2-e3ed-993d42e76375/cover.jpg/600x600bb-60.jpg"
   }
 ]
