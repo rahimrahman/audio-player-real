@@ -38,6 +38,16 @@ export default class AudioList extends React.Component<
       console.log('TrackPlayer all setup');
     });
 
+    TrackPlayer.updateOptions({
+      capabilities: [
+        TrackPlayer.CAPABILITY_PLAY,
+        TrackPlayer.CAPABILITY_PAUSE,
+        TrackPlayer.CAPABILITY_STOP,
+        TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
+        TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
+      ],
+    });
+
     TrackPlayer.add([...track]).then(() => {
       // The tracks were added
       console.log('TrackPlayer add()');
