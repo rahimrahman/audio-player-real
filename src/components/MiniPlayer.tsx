@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import TrackPlayer, {
   // @ts-ignore
   usePlaybackState,
@@ -12,13 +18,18 @@ import PlayerButton from './PlayerButton';
 interface IMiniPlayerProps {
   skipNext: () => void;
   togglePlayback: () => void;
+  togglePlayer: () => void;
 }
 interface IPlaybackEventProps {
   type: string;
   nextTrack: any;
 }
 
-const MiniPlayer = ({ skipNext, togglePlayback }: IMiniPlayerProps) => {
+const MiniPlayer = ({
+  skipNext,
+  togglePlayback,
+  togglePlayer,
+}: IMiniPlayerProps) => {
   const [trackArtwork, setTrackArtwork] = useState();
   const [trackTitle, setTrackTitle] = useState('');
   const playbackState = usePlaybackState();
@@ -40,17 +51,22 @@ const MiniPlayer = ({ skipNext, togglePlayback }: IMiniPlayerProps) => {
   );
   return (
     <View style={styles.miniPlayerContainer}>
-      <View style={styles.commonStyleContainer}>
-        <Image
-          style={styles.tinyLogo}
-          source={{
-            uri: trackArtwork,
-          }}
-        />
-      </View>
-      <View style={[styles.commonStyleContainer, styles.trackContainer]}>
-        <Text>{trackTitle}</Text>
-      </View>
+      <TouchableWithoutFeedback onPress={togglePlayer}>
+        <View style={{ flex: 5, flexDirection: 'row' }}>
+          <View style={styles.commonStyleContainer}>
+            <Image
+              style={styles.tinyLogo}
+              source={{
+                uri: trackArtwork,
+              }}
+            />
+          </View>
+          <View style={[styles.commonStyleContainer, styles.trackContainer]}>
+            <Text>{trackTitle}</Text>
+          </View>
+        </View>
+      </TouchableWithoutFeedback>
+
       <View style={[styles.commonStyleContainer, styles.controlContainer]}>
         <PlayerButton title={playPauseButton} onPress={togglePlayback} />
         <PlayerButton title={'>>'} onPress={skipNext} />
@@ -72,6 +88,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'nowrap',
     height: '100%',
+    alignItems: 'center',
   },
   tinyLogo: {
     width: 40,

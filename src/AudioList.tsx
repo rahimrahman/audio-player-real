@@ -1,116 +1,44 @@
 import React from 'react';
 import {
   Image,
-  View,
+  Modal,
   StyleSheet,
   Text,
   FlatList,
   TouchableWithoutFeedback,
+  View,
 } from 'react-native';
 import TrackPlayer from 'react-native-track-player';
 
-// import Player from './components/Player';
 import MiniPlayer from './components/MiniPlayer';
+import Player from './components/Player';
 
-// const track = [
-//   {
-//     id: '1', // Must be a string, required
-//
-//     url:
-//       'https://designband.com/wp-content/uploads/2012/10/All-About-That-Bass-D.mp3', // Load media from the network
-//
-//     title: 'All About That Bass',
-//     artist: 'Meghan Traynor',
-//     album: 'while(1<2)',
-//     genre: 'Progressive House, Electro House',
-//     date: '2014-05-20T07:00:00+00:00', // RFC 3339
-//
-//     artwork:
-//       'https://is3-ssl.mzstatic.com/image/thumb/Features124/v4/84/cc/c4/84ccc473-77cd-e056-a73b-7b5b1db4c473/pr_source.png/190x190cc-60.jpg', // Load artwork from the network
-//   },
-//   {
-//     id: '2', // Must be a string, required
-//
-//     url: 'https://designband.com/wp-content/uploads/2012/10/Uptown-Funk-D.mp3',
-//
-//     title: 'Uptown Funk',
-//     artist: 'Bruno Mars',
-//     album: 'while(1<2)',
-//     genre: 'Progressive House, Electro House',
-//     date: '2014-05-20T07:00:00+00:00', // RFC 3339
-//
-//     artwork:
-//       'https://is5-ssl.mzstatic.com/image/thumb/Music/v4/89/88/62/898862e2-3dda-efb4-dc3e-00a06d8b4dd7/075679956491.jpg/300x300bb-60.jpg',
-//   },
-//   {
-//     id: 'sample-1', // Must be a string, required
-//
-//     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', // Load media from the network
-//
-//     title: 'Avaritia',
-//     artist: 'T. Schürger',
-//     album: 'while(1<2)',
-//     genre: 'Progressive House, Electro House',
-//     date: '2009-07-06T07:00:00+00:00', // RFC 3339
-//
-//     artwork:
-//       'https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/cc/7f/78/cc7f784c-5f6d-7aae-013d-350ab7999c84/075679871503.jpg/300x300bb-60.jpg', // Load artwork from the network
-//   },
-//
-//   {
-//     id: 'sample-2', // Must be a string, required
-//
-//     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', // Load media from the network
-//
-//     title: 'Avaritia II',
-//     artist: 'deadmau5',
-//     album: 'while(1<2)',
-//     genre: 'Progressive House, Electro House',
-//     date: '2014-05-20T07:00:00+00:00', // RFC 3339
-//
-//     artwork:
-//       'https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/cc/7f/78/cc7f784c-5f6d-7aae-013d-350ab7999c84/075679871503.jpg/300x300bb-60.jpg', // Load artwork from the network
-//   },
-//   {
-//     id: 'sample-3', // Must be a string, required
-//
-//     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3', // Load media from the network
-//
-//     title: 'Avaritia III',
-//     artist: 'deadmau5',
-//     album: 'while(1<2)',
-//     genre: 'Progressive House, Electro House',
-//     date: '2014-05-20T07:00:00+00:00', // RFC 3339
-//
-//     artwork:
-//       'https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/cc/7f/78/cc7f784c-5f6d-7aae-013d-350ab7999c84/075679871503.jpg/300x300bb-60.jpg', // Load artwork from the network
-//   },
-//   {
-//     id: 'sample-8', // Must be a string, required
-//
-//     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3', // Load media from the network
-//
-//     title: 'Sound Helix Sample 8',
-//     artist: 'T. Schürger',
-//     album: 'while(1<2)',
-//     genre: 'Progressive House, Electro House',
-//     date: '2014-05-20T07:00:00+00:00', // RFC 3339
-//
-//     artwork:
-//       'https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/cc/7f/78/cc7f784c-5f6d-7aae-013d-350ab7999c84/075679871503.jpg/300x300bb-60.jpg', // Load artwork from the network
-//   },
-// ];
+import track from './data/playlist.json';
 
-const track = require('./data/playlist.json');
+type AudioListState = {
+  showPlayerModal: boolean;
+};
+type AudioListProps = {};
 
-export default class AudioList extends React.Component {
+export default class AudioList extends React.Component<
+  AudioListProps,
+  AudioListState
+> {
+  constructor(props: AudioListState) {
+    super(props);
+
+    this.state = {
+      showPlayerModal: false,
+    };
+  }
+
   public componentDidMount() {
     TrackPlayer.setupPlayer().then(() => {
       // The player is ready to be used
       console.log('TrackPlayer all setup');
     });
 
-    TrackPlayer.add(track).then(() => {
+    TrackPlayer.add([...track]).then(() => {
       // The tracks were added
       console.log('TrackPlayer add()');
     });
@@ -118,11 +46,7 @@ export default class AudioList extends React.Component {
 
   private audioControl = async (index: number) => {
     const playbackState = await TrackPlayer.getState();
-
     await TrackPlayer.skip(track[index].id);
-
-    console.log(playbackState);
-
     if (
       playbackState === TrackPlayer.STATE_PAUSED ||
       playbackState === TrackPlayer.STATE_STOPPED ||
@@ -162,22 +86,55 @@ export default class AudioList extends React.Component {
           />
         </View>
 
-        <View style={styles.playerContainer}>
+        <View style={styles.miniPlayerContainer}>
           <MiniPlayer
             togglePlayback={this.togglePlayback}
+            togglePlayer={this.togglePlayerModal}
             skipNext={this.skipNext}
           />
-          {/*<Player*/}
-          {/*  seek={this.seek}*/}
-          {/*  skipNext={this.skipNext}*/}
-          {/*  skipPrevious={this.skipPrevious}*/}
-          {/*  togglePlayback={this.togglePlayback}*/}
-          {/*/>*/}
         </View>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={this.state.showPlayerModal}
+          onRequestClose={this.togglePlayerModal}
+          style={styles.mainModalContainer}>
+          <View
+            onTouchEnd={this.togglePlayerModal}
+            style={[
+              styles.transparentBackgroundContainer,
+              styles.transparentContainer,
+            ]}
+          />
+          <View
+            style={[
+              styles.transparentBackgroundContainer,
+              styles.flexOneOnlyContainer,
+            ]}>
+            <View
+              onTouchMove={this.togglePlayerModal}
+              style={styles.playerTopSectionContainer}>
+              <View style={styles.greyBarContainer} />
+            </View>
+          </View>
+          <View style={styles.mainPlayerContainer}>
+            <View style={styles.flexOneOnlyContainer}>
+              <Player
+                seek={this.seek}
+                skipNext={this.skipNext}
+                skipPrevious={this.skipPrevious}
+                togglePlayback={this.togglePlayback}
+              />
+            </View>
+          </View>
+        </Modal>
       </View>
     );
   }
 
+  private togglePlayerModal = () => {
+    this.setState({ showPlayerModal: !this.state.showPlayerModal });
+  };
   private skipPrevious = async (): Promise<void> => {
     try {
       await TrackPlayer.skipToPrevious();
@@ -212,8 +169,30 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   audioListContainer: { flex: 1, height: '100%' },
-  playerContainer: {
+  flexOneOnlyContainer: { flex: 1 },
+  greyBarContainer: {
+    backgroundColor: 'lightgrey',
+    width: 40,
+    height: 5,
+    borderRadius: 2.5,
+  },
+  mainModalContainer: { flex: 1 },
+  mainPlayerContainer: {
+    flex: 24,
+    backgroundColor: 'rgba(255, 255, 255, 1)',
+  },
+  miniPlayerContainer: {
     height: 54,
+  },
+  playerTopSectionContainer: {
+    flex: 1,
+    height: 20,
+    backgroundColor: 'rgba(255, 255, 255, 1)',
+
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   trackDetailContainer: {
     flex: 1,
@@ -226,6 +205,8 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'flex-end',
   },
+  transparentBackgroundContainer: { backgroundColor: 'rgba(52, 52, 52, 0.5)' },
+  transparentContainer: { flex: 2 },
 
   /* text */
   artistText: { color: 'grey', fontSize: 12 },
