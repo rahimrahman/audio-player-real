@@ -9,9 +9,12 @@ import {
   View,
 } from 'react-native';
 import TrackPlayer from 'react-native-track-player';
+// @ts-ignore
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import MiniPlayer from './components/MiniPlayer';
 import Player from './components/Player';
+import Progress from './components/Progress';
 
 import track from './data/playlist.json';
 
@@ -24,6 +27,7 @@ export default class AudioList extends React.Component<
   AudioListProps,
   AudioListState
 > {
+  private lastPosition: number | undefined = undefined;
   constructor(props: AudioListState) {
     super(props);
 
@@ -52,24 +56,44 @@ export default class AudioList extends React.Component<
       // The tracks were added
       console.log('TrackPlayer add()');
     });
+
+    this.getStoredLastTrackInfo().then(() => {});
   }
 
-  private audioControl = async (index: number) => {
+  private getStoredLastTrackInfo = async () => {
+    try {
+      const lastTrackId = await AsyncStorage.getItem('lastTrackId');
+      await TrackPlayer.skip(lastTrackId);
+      const position = await AsyncStorage.getItem('lastTrackPosition');
+      this.lastPosition = Number(position);
+    } catch (_) {}
+  };
+
+  private storeLastTrackId = async () => {
+    const trackId = await TrackPlayer.getCurrentTrack();
+    console.log('the track id', trackId);
+    await AsyncStorage.setItem('lastTrackId', trackId);
+  };
+
+  private onAudioItemPressed = async (index: number) => {
     const playbackState = await TrackPlayer.getState();
-    await TrackPlayer.skip(track[index].id);
+    const trackId = track[index].id;
+    await TrackPlayer.skip(trackId);
+
+    await this.storeLastTrackId();
     if (
       playbackState === TrackPlayer.STATE_PAUSED ||
       playbackState === TrackPlayer.STATE_STOPPED ||
       playbackState === TrackPlayer.STATE_READY
     ) {
-      await TrackPlayer.play();
+      await this.togglePlayback();
       return;
     }
   };
 
   private renderAudioItem = ({ item, index }: { item: any; index: number }) => {
     return (
-      <TouchableWithoutFeedback onPress={() => this.audioControl(index)}>
+      <TouchableWithoutFeedback onPress={() => this.onAudioItemPressed(index)}>
         <View key={item.id} style={styles.audioItemContainer}>
           <Image
             style={styles.tinyLogo}
@@ -88,6 +112,7 @@ export default class AudioList extends React.Component<
   public render() {
     return (
       <View style={styles.viewContainer}>
+        <Progress />
         <View style={styles.audioListContainer}>
           <FlatList
             data={track}
@@ -148,11 +173,13 @@ export default class AudioList extends React.Component<
   private skipPrevious = async (): Promise<void> => {
     try {
       await TrackPlayer.skipToPrevious();
+      await this.storeLastTrackId();
     } catch (_) {}
   };
   private skipNext = async (): Promise<void> => {
     try {
       await TrackPlayer.skipToNext();
+      await this.storeLastTrackId();
     } catch (_) {}
   };
   private seek = (seconds: number = 15): void => {
@@ -164,9 +191,15 @@ export default class AudioList extends React.Component<
     const playbackState = await TrackPlayer.getState();
     if (playbackState === TrackPlayer.STATE_PLAYING) {
       await TrackPlayer.pause();
+      const position = await TrackPlayer.getPosition();
+      await AsyncStorage.setItem('lastTrackPosition', `${position}`);
       return;
     }
     await TrackPlayer.play();
+    if (this.lastPosition) {
+      await TrackPlayer.seekTo(this.lastPosition);
+      this.lastPosition = undefined;
+    }
   };
 }
 
